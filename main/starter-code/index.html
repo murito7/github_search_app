@@ -22,7 +22,7 @@
       <h1>devifinder</h1>
       <div class="color-mode">
         <p class="mode-type">Dark</p>
-        <img src="assets/icon-moon.svg" alt="">
+        <img class="icon" onclick="changeImg()" src="assets/icon-moon.svg" alt="">
       </div>
     </nav>
     <div class="search-bar">
@@ -30,6 +30,75 @@
       <div class="btn">Search</div>
       <div class="no-result-msg"></div>
     </div>
+    <div class="main">
+      <div class="upper">
+        <img src="assets/octocat.png" alt="">
+        <div class="info">
+          <h1>The Octocat</h1>
+          <p>@octocat</p>
+          <span>No bio yet</span>
+        </div>
+      </div>
+      <div class="date">
+        <p>Joined 25 Jan 2011</p>
+      </div>
+      <div class="data">
+        <div>
+          <p>Repos</p>
+          <strong>8</strong>
+        </div>
+        <div>
+          <p>Followers</p>
+          <strong>3938</strong>
+        </div>
+        <div>
+          <p>Following</p>
+          <strong>9</strong>
+        </div>
+      </div>
+      <div class="socials">
+        <div class="box">
+          <img src="assets/icon-location.svg" alt="">
+          <p>San Francisco</p>
+        </div>
+        <div class="box">
+          <img src="assets/icon-twitter.svg" alt="">
+          <p>Not Available</p>
+        </div>
+        <div class="box">
+          <img src="assets/icon-website.svg" alt="">
+          <a href="https://github.blog" target="_blank">https://github.blog</a>
+        </div>
+        <div class="box">
+          <img src="assets/icon-company.svg" alt="">
+          <p>@github</p>
+        </div>
+      </div>
+    </div>
   </div>
+  <script>
+    const searchBtn = document.querySelector('.btn');
+    const resultMsg = document.querySelector('.no-result-msg');
+    searchBtn.addEventListener('click', () => {
+      resultMsg.innerText = 'No results'
+    })
+    
+    const icon = document.querySelector('.icon');
+    const colorMode = document.querySelector('.mode-type');
+
+    icon.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    })
+    function changeImg(){
+        if (icon.src.match("./assets/icon-moon.svg")) {
+          icon.src = "./assets/icon-sun.svg";
+          colorMode.innerText = 'Ligth'
+        }
+        else {
+          icon.src = "./assets/icon-moon.svg";
+          colorMode.innerText = 'Dark'
+        }
+      }
+  </script>
 </body>
 </html>
