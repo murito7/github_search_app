@@ -26,7 +26,7 @@
       </div>
     </nav>
     <div class="search-bar">
-      <input name='searchBar'type="text" placeholder="Search GitHub username...">
+      <input id="input" name='searchBar'type="text" placeholder="Search GitHub username...">
       <div class="btn">Search</div>
       <div class="no-result-msg"></div>
     </div>
@@ -36,7 +36,7 @@
         <div class="info">
           <h1>The Octocat</h1>
           <p>@octocat</p>
-          <span>No bio yet</span>
+          <span id="bio"></span>
         </div>
       </div>
       <div class="date">
@@ -79,8 +79,18 @@
   <script>
     const searchBtn = document.querySelector('.btn');
     const resultMsg = document.querySelector('.no-result-msg');
-    searchBtn.addEventListener('click', () => {
-      resultMsg.innerText = 'No results'
+    const bio = document.getElementById("bio");
+    const input = document.getElementById("input");
+    searchBtn.addEventListener('click', function handleClick(event)
+    {
+      event.preventDefault();
+      resultMsg.innerText = 'No results';
+      bio.innerHTML = "We couldn't find this user's bio"
+      setTimeout(function () {
+        resultMsg.innerHTML = "";
+        bio.innerHTML = "";
+        input.value = "";
+    }, 3000);
     })
     
     const icon = document.querySelector('.icon');
